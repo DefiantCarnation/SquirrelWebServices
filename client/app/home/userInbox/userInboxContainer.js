@@ -9,34 +9,38 @@ class UserInboxContainer extends React.Component {
     this.state = {
       sortedUserArticles: []
     };
-    this.sortArticlesByCreatedAt = this.sortArticlesByCreatedAt.bind(this);
+    // this.sortArticlesByCreatedAt = this.sortArticlesByCreatedAt.bind(this);
   }
 
-  componentWillMount() {
-    this.sortArticlesByCreatedAt();
-  }
+  // componentWillMount() {
+  //   this.sortArticlesByCreatedAt();
+  // }
   
-  sortArticlesByCreatedAt() {
-    var sorted = this.props.articles.sort(function(a, b) {
-      if (a.createdAt < b.createdAt) {
-        return 1;
-      }
-      if (a.createdAt > b.createdAt) {
-        return -1;
-      }
-      return 0;
+  // // sortArticlesByCreatedAt() {
+  // //   var sorted = this.props.articles.sort(function(a, b) {
+  // //     if (a.createdAt < b.createdAt) {
+  // //       return 1;
+  // //     }
+  // //     if (a.createdAt > b.createdAt) {
+  // //       return -1;
+  // //     }
+  // //     return 0;
 
-    });
-    this.setState({
-      sortedUserArticles: sorted
-    });
-    console.log('these articles are sorted>>>>>>>>', sorted);
-  }
+  // //   });
+  // //   this.setState({
+  // //     sortedUserArticles: sorted
+  // //   });
+  // //   console.log('these articles are sorted>>>>>>>>', sorted);
+  // // }
 
   render() {
-    var mappedArticles = this.props.articles.map((item, idx) => {
-      return (<ArticleInfoWindowContainer key={idx} url={item.url} createdAt={item.createdAt}/>);
-    });
+    var mappedArticles = [];
+    for(var i = this.props.articles.length - 1; i > -1; i--){
+      mappedArticles.push(<ArticleInfoWindowContainer key={i} url={this.props.articles[i].url} createdAt={this.props.articles[i].createdAt}/>)
+    }
+    // var mappedArticles = this.props.articles.map((item, idx) => {
+    //   return (<ArticleInfoWindowContainer key={idx} url={item.url} createdAt={item.createdAt}/>);
+    // });
     return (
     <UserInboxPresentational >
       {mappedArticles}

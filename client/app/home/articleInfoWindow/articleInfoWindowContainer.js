@@ -20,7 +20,6 @@ class ArticleInfoWindowContainer extends React.Component {
   }
 
   componentDidMount() {
-    console.log('are you getting stuff from friends??>>>>>', this.props);
     this.getUrlInfo(this.props.url);
     this.checkIfFromFriend();
   }

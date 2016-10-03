@@ -38,12 +38,12 @@ class HomeContainer extends React.Component {
   }
 
   shouldComponentUpdate(state, props){
-    console.log(state, props);
+    // console.log(state, props);
     return true;
   }
 
   sortArticles() {
-    console.log(this.state.user.fbid, 'testing this once');
+    console.log(this.state.articles, 'testing this once');
 
     const userArticles = this.state.articles.filter((link) => {
         return link.assignee === this.state.user.fbid;
@@ -56,18 +56,40 @@ class HomeContainer extends React.Component {
       }).map((item) => {
         return {assignee: item.assignee, url: item.url, createdAt: item.createdAt};
       });
-
+      console.log(userArticles, articlesFromFriends, 'im here');
     this.setState({
       userArticles: userArticles,
       articlesFromFriends: articlesFromFriends, 
     });
   }
 
+  handleUpdateInbox(url, owner, assignee) {
+    axios.put(`http://localhost:8888/links/friends/${owner}/${assignee}`, {link: url})
+    .then((data) => {
+      if(owner === this.state.user.fbid) {
+        console.log('updating yolo')
+        axios.get('http://wwww.localhost:8888/links/' + this.state.user.fbid)
+        .then((links) => {
+          this.setState({articles: links.data[0]}, ()=>{
+            this.sortArticles();
+          });
+        })
+        .catch((err)=> {
+          console.log(err)
+        });
+      }
+    })
+    .catch((err) => {
+      console.log('error in inputBarContainer handleSubmit', err);
+    })
+  }
+
   render() {
+    console.log(this.state.userArticles, 'hello world');
     return (
     <div style={{'height': '100%', 'width': '100%'}}>
       <HomePresentational >
-        <InputBarContainer userId={this.state.user}/>
+        <InputBarContainer handleUpdateInbox={this.handleUpdateInbox.bind(this)} userId={this.state.user}/>
         <div className='row inboxmain'>
           <div className='col s8 grey lighten-5'>
             <Scrollbars style={{ height: 600 }}>

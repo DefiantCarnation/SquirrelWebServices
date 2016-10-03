@@ -34,13 +34,14 @@ class InputBarContainer extends React.Component {
     var input = document.getElementById('inputClear').value = '';
     this.setState({input: ''});
 
-    axios.put(`http://localhost:8888/links/friends/${this.state.owner}/${this.state.userId}`, {link: inputUrl})
-    .then(function(data){
-      console.log(data);
-    })
-    .catch(function(err){
-      console.log('error in inputBarContainer handleSubmit', err);
-    })
+    this.props.handleUpdateInbox(inputUrl, this.state.owner, this.state.userId);
+    // axios.put(`http://localhost:8888/links/friends/${this.state.owner}/${this.state.userId}`, {link: inputUrl})
+    // .then(function(data){
+    //   console.log(data);
+    // })
+    // .catch(function(err){
+    //   console.log('error in inputBarContainer handleSubmit', err);
+    // })
   }
 
   render() {
