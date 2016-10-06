@@ -8,13 +8,14 @@ import HomeContainer from './home/HomeContainer';
 import FriendContainer from './friends/friendContainer';
 import UserInboxContainer from './home/userInbox/userInboxContainer';
 import NavBarContainer from './home/navBar/NavBarContainer';
+import SignUpContainer from './signup/SignupContainer';
 import axios from 'axios';
 
 const validate = function(nextState, replace, callback) {
   axios.get('/checkAuth')
   .then(function(user) {
     if (user.data === '') {
-      replace('login');
+      replace('/');
       callback();
     } else {
       callback();
@@ -29,8 +30,9 @@ const validate = function(nextState, replace, callback) {
 const routes = (
   <Router history={hashHistory}>
     <Route path='/' component={NavBarContainer}>
-      <IndexRoute component={HomeContainer} onEnter={validate}/>
-      <Route path='login' component={LoginContainer} />
+      <IndexRoute component={LoginContainer}/>
+      <Route path='signup' component={SignUpContainer}/>
+      <Route path='home' component={HomeContainer} onEnter={validate}/>
       <Route path='friends' component={FriendContainer} onEnter={validate}/>
     </Route>
   </Router>
