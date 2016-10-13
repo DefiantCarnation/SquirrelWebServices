@@ -26,7 +26,7 @@ class SignUpContainer extends React.Component {
         //(do the signing in for the client);
       axios.post('/login2', {username: data.data.fbid, password: data.data.fbname})
         .then((data) => {
-            console.log(data.data, 'data.data');
+            console.log(data.data, 'data.data after sign up should be pushing user to /home');
             this.context.router.push('/home');
           });
       })

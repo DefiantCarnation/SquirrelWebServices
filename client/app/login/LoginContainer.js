@@ -3,6 +3,7 @@ import LoginPresentational from './LoginPresentational';
 import LoginTrendingPresentational from './LoginTrendingPresentational';
 import axios from 'axios';
 import Modal from 'react-modal';
+
 class LoginContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -22,14 +23,18 @@ class LoginContainer extends React.Component {
     this.getLandingArticles();
   }
   handleSubmit(e) {
+    //are we getting here?
     e.preventDefault();
     const username = this.state.username;
     const password = this.state.password;
+    console.log(username, 'mike');
+    console.log(password, 'mike');
+
     // this.username.value = '';
     // this.password.value = '';
-    axios.post('http://localhost:3010/login2', {username: username, password: password})
+    axios.post('/login2', {username: username, password: password})
     .then((data) => {
-      console.log(data.data, 'data.data');
+      console.log(data.data, 'data.data, should be pushing user to main page with this.context.router');
       this.context.router.push('/home');
     })
     .catch((err) => {
@@ -48,7 +53,7 @@ class LoginContainer extends React.Component {
   getLandingArticles() {
     //get most recent 20 articles from redis
     console.log('in getLandingArticles over!');
-    axios.get('http://localhost:3333/getMostRecent')
+    axios.get('/getMostRecent')
       .then((res) => {
         this.setState({
           articles: res.data
@@ -76,7 +81,7 @@ class LoginContainer extends React.Component {
     return (
       <div>
           <div onClick={this.openModal}>
-            <div className="row">
+            <div className="row" style={{display: 'flex', justifyContent: 'center'}}>
               <div className="col s12 m6 parallax" className='landing-container'>
                 {mappedArticles}
               </div>
@@ -89,19 +94,19 @@ class LoginContainer extends React.Component {
                 <h5 className="footer-text"><span className="footer-header">Squirrel</span></h5>
                 <p className="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
               </div>
-              <div className="col s4">
+              <div className="col s4 footer-icon">
                 <h5 className="footer-text">Save</h5>
                 <ul>
                   <li><i className="material-icons md-48 white600">archive</i></li>
                 </ul>
               </div>
-              <div className="col s4">
+              <div className="col s4 footer-icon">
                 <h5 className="footer-text">Read</h5>
                 <ul>
                   <li><i className="material-icons md-48 white600">portable_wifi_off</i></li>
                 </ul>
               </div>
-              <div className="col s4">
+              <div className="col s4 footer-icon">
                 <h5 className="footer-text">Share</h5>
                 <ul>
                   <li><i className="material-icons md-48 white600">face</i></li>

@@ -9,7 +9,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var options = function(id, name, avatar, api){
   return {
     method: 'POST',
-    uri: 'http://localhost:8888/' + api,
+    uri: 'http://db:8888/' + api,
     body: {
         username: id,
         password: name || undefined,

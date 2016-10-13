@@ -621,11 +621,12 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   bottom: 0;
-  width: 100%;
+  width: 1100px;
   height: 450px;
   overflow: hidden;
+  margin-top: 20px;
 }
 .npm-modal-default {
   position: fixed;
@@ -644,12 +645,20 @@ body {
   color: grey;
 }
 .footer-header {
-  font-size: 20px;
+  font-size: 30px;
   font-family: 'Shrikhand', cursive;
   color: #fff;
 }
 .footer-text {
   font-size: 18px;
+  color: #fff;
+}
+.footer-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
 .page-footer {
   background-color: #ff7043 !important;
@@ -707,3 +716,73 @@ body {
 .material-icons.orange600 { 
  color: #e64a19 ; 
 }
+
+.friendlist {
+  /*background-color: gray;*/
+  height:100%;
+  overflow: scroll;
+}
+
+.friendarticle {
+  /*background-color: white;*/
+  height:100%;
+  overflow: scroll;
+}
+
+.friendlist h5 {
+  font-weight: bold;
+  color: #9e9e9e;
+  font-family: "Roboto", sans-serif;
+  padding-top: 5px;
+  padding-bottom: 7px;
+}
+
+.friendlistunit {
+  position: relative;
+  margin-bottom: 10px;
+  background-color: #ececec;
+  width: 90%;
+  height: 70px;
+  border-radius: 3px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+  transition: background-color 0.5s ease;
+  color:#9e9e9e;
+}
+
+.friendlistunit:hover {
+  color: white;
+  background-color: rgb(199, 199, 199);
+  cursor: pointer;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
+}
+
+.friendheaderstyle {
+  height: 10%;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  width: 100%;
+  background: rgba(245, 190, 156, 0.97);
+}
+
+.friendfooterstyle {
+  position: absolute;
+  height: 3%;
+  width: 100%;
+  bottom: 0;
+  background: linear-gradient(-90deg, #18ffff, #a7ffeb);
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.friendlistcardbody h6 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  padding-left: 30px;
+  overflow: hidden;
+  font-size: 20px;
+  top: 15px;
+  position: absolute;
+}
+
+
+

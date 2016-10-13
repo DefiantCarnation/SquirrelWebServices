@@ -14,7 +14,7 @@ class FriendSearchResultContainer extends React.Component {
     //this.props.result is an array of search result users
     console.log('made it to SearchResult', this.props);
     return (
-      <div>
+      <div style={{display:'flex', flexWrap: 'wrap'}}>
       {this.props.result.map((item, idx) => {
         return (
           <div>

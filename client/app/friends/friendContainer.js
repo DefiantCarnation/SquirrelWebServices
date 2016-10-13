@@ -88,7 +88,7 @@ class FriendContainer extends React.Component {
       return (
         //searchView
         <div>
-          <h5>Result: </h5>
+          <h5 style={{fontFamily: '"Roboto", sans-serif', fontWeigth: 'bold', color: '#9e9e9e'}}>Search results</h5>
           <FriendSearchResultContainer user={this.state.user} result={this.state.friendSearchResult} addFriend={this.addFriend}/>
         </div>
       );
