@@ -17,3 +17,5 @@ const RecommendationPresentational = (props) => {
 };
 
 export default RecommendationPresentational;
+
+//props.article.url

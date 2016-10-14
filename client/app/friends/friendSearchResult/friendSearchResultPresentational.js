@@ -39,18 +39,21 @@ const friendFooterStyle = {
 }
 
 const h6style = {
+  fontFamily: '"Roboto", sans-serif',
+  fontWeight: 'bold',
+  color: 'gray',
   top: '10px',
   width: '225px',
   height: '30px',
   position: 'relative',
   textAlign: 'center',
-  fontSize: '17px',
+  fontSize: '30px',
 }
 
 const FriendSearchResultPresentational = (props) => {
   console.log('i am in FriendSearchResultPresentational', props.user);
     return (
-            <div style={friendStyle} onClick={() => props.addFriend(props.user)}>
+            <div className='foundfriends' style={friendStyle} onClick={() => props.addFriend(props.user)}>
               <div style={friendHeaderStyle}></div>
                 <div style={{friendSearchResultBody}}>
                   <h6 style={h6style}>{props.user.fbid}</h6>

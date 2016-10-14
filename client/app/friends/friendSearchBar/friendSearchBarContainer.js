@@ -19,11 +19,9 @@ class FriendSearchBarContainer extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     var friend = this.state.input;
-    var input = document.getElementById('inputClear').value = '';
-    this.setState({input: ''});
-     //do some http POST with url
     this.searchFriend();
-    // this.props.updateToSearchResult(['test test']);
+    this.setState({input: ''});
+    var input = document.getElementById('inputClear').value = '';
   }
 
   searchFriend() {

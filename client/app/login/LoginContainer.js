@@ -80,6 +80,7 @@ class LoginContainer extends React.Component {
     });
     return (
       <div>
+          <div className='slogan'>To get started, click on any article below</div>
           <div onClick={this.openModal}>
             <div className="row" style={{display: 'flex', justifyContent: 'center'}}>
               <div className="col s12 m6 parallax" className='landing-container'>
@@ -90,27 +91,29 @@ class LoginContainer extends React.Component {
           <footer className="page-footer">
           <div className="container">
             <div className="row">
-              <div className="col s12">
+              <div style={{marginBottom: '25px'}} className="col s12 center-align">
                 <h5 className="footer-text"><span className="footer-header">Squirrel</span></h5>
-                <p className="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
               </div>
               <div className="col s4 footer-icon">
                 <h5 className="footer-text">Save</h5>
                 <ul>
                   <li><i className="material-icons md-48 white600">archive</i></li>
                 </ul>
+                <p>Stash your articles for later with Squirrel. Squirrel will save all your reading material for later. The best part is, we'll have them locally stored for you to read when you have no internet! Never be out of reading content again!</p>
               </div>
               <div className="col s4 footer-icon">
                 <h5 className="footer-text">Read</h5>
                 <ul>
                   <li><i className="material-icons md-48 white600">portable_wifi_off</i></li>
                 </ul>
+                <p>Stay up to date on all your favorite topics. Squirrel will help you keep track of those articles that you hope to read in the future. We'll also recommend you articles based on other users with similar interests!</p>
               </div>
               <div className="col s4 footer-icon">
                 <h5 className="footer-text">Share</h5>
                 <ul>
                   <li><i className="material-icons md-48 white600">face</i></li>
                 </ul>
+                <p>Share awesome content with others! You can recommend articles to your friends and vice versa. It's always nice to have unexpected reading content recommended by people you actually know! We'll stash a few of those away locally just in case the internet cuts out ;)</p>
               </div>
             </div>
           </div>

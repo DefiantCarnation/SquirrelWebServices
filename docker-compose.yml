@@ -2,23 +2,24 @@ version: '2'
 
 services:
   web:
-    image: squirrel-web-docker:7.0
-    # image: mwongka/squirrel-web-docker:latest
+    # image: squirrel-web-docker:7.0
+    image: mwongka/squirrel-web-docker:latest
     ports:
       - "3010:3010"
     links: 
       - db
       - dbredis
+      - recommendations
     command: npm start
   db:
-    image: squirrel-db-docker:1.7
-    # image: mwongka/squirrel-db-docker:latest
+    # image: squirrel-db-docker:2.3
+    image: mwongka/squirrel-db-docker:latest
     ports: 
       - "8888:8888"
     command: npm start
   dbredis: 
-    image: squirrel-redis:latest
-    # image: mwongka/squirrel-dbredis-docker:latest
+    # image: squirrel-redis:latest
+    image: mwongka/squirrel-dbredis-docker:latest
     ports: 
       - "3333:3333"
     links:
@@ -29,4 +30,9 @@ services:
     image: redis
     ports: 
       - "6379"
+  recommendations:
+    image: mwongka/squirrel-recommender-docker:latest
+    ports:
+      - "3121:3121"
+    command: npm start
   

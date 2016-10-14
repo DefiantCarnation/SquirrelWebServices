@@ -74,7 +74,7 @@ app.get('/rec/:userid', function(req, res) {
   console.log('in /rec/:userid', req.params.userid)
   var options = {
     method: 'GET',
-    uri: 'http://localhost:3121/rec/' + req.params.userid,
+    uri: 'http://recommendations:3121/rec/' + req.params.userid,
     json: true
   };
 
@@ -114,7 +114,7 @@ app.post('/rec/:userid', function(req, res) {
   var url = req.body.link;
   var options = {
     method: 'POST',
-    uri: 'http://localhost:3121/rec/' + req.params.userid,
+    uri: 'http://recommendations:3121/rec/' + req.params.userid,
     body: {
       url: req.body.link
     },
