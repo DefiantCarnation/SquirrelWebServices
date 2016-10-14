@@ -10,7 +10,7 @@ class InputBarContainer extends React.Component {
       owner: '',
       assignee: '',
       userId: '',
-    }
+    };
   }
   componentWillReceiveProps(props){
     if(props.userId && props.userId.fbid !== this.state.userId) { 
@@ -23,7 +23,7 @@ class InputBarContainer extends React.Component {
   }
 
   shouldComponentUpdate(props, state){
-    console.log(state, 'what\'s in next state' )
+    // console.log(state, 'what\'s in next state' )
     return true;
   }
 
